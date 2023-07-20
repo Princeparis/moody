@@ -1,9 +1,9 @@
-import Editor from "@/components/Editor";
-import { getUserByClerkID } from "@/utils/auth";
-import { prisma } from "@/utils/db";
+import Editor from '@/components/Editor'
+import { getUserByClerkID } from '@/utils/auth'
+import { prisma } from '@/utils/db'
 
 const getJournal = async (id: string) => {
-  const user = await getUserByClerkID();
+  const user = await getUserByClerkID()
   const journal = await prisma.journalEntry.findUnique({
     where: {
       userId_id: {
@@ -11,17 +11,20 @@ const getJournal = async (id: string) => {
         id,
       },
     },
-  });
-  return journal;
-};
+    include: {
+      analysis: true,
+    },
+  })
+  return journal
+}
 
 const EntryPage = async ({ params }) => {
-  const journal = await getJournal(params.id);
+  const journal = await getJournal(params.id)
   return (
     <div className="h-full w-full">
       <Editor journal={journal} />
     </div>
-  );
-};
+  )
+}
 
-export default EntryPage;
+export default EntryPage
