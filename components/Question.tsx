@@ -36,7 +36,7 @@ const Question = () => {
         <button
           disabled={loading}
           type="submit"
-          className="px-6 py-3 bg-purple-600 text-lg font-bold rounded-full text-white"
+          className="px-6 py-3 bg-purple-600 text-lg font-bold rounded-full text-white hover:bg-purple-700 transition-all duration-200 ease-in-out"
         >
           Ask
         </button>

@@ -15,6 +15,10 @@ const getEntries = async () => {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      analysis: true,
+      user: true,
+    },
   })
   return journals
 }
@@ -22,12 +26,12 @@ const getEntries = async () => {
 const JournalPage = async () => {
   const journals = await getEntries()
   return (
-    <div className="p-10 bg-zinc-200/40 h-full">
+    <div className="p-10 bg-zinc-200/40 h-full overflow-auto">
       <h2 className="text-3xl font-bold mb-8 ">Journal</h2>
       <div className="my-8">
         <Question />
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         <NewEntryCard />
         {journals.map((journal) => (
           <Link href={`/journal/${journal.id}`} key={journal.id}>

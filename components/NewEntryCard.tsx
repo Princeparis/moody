@@ -1,4 +1,5 @@
 'use client'
+import { VscAdd } from 'react-icons/vsc'
 
 import { createNewEntry } from '@/utils/api'
 import { revalidatePath } from 'next/cache'
@@ -13,11 +14,11 @@ const NewEntryCard = () => {
   }
   return (
     <div
-      className="cursor-pointer overflow-hidden rounded-lg bg-white shadow"
+      className="w-full h-full cursor-pointer rounded-xl bg-white hover:border-2 border-purple-800 shadow hover:shadow-lg hover:scale-105 transition-all duration-200 ease-in-out"
       onClick={handleClick}
     >
-      <div className="px-4 py-5 sm:p-6">
-        <span className="text-3xl">New Entry</span>
+      <div className="flex justify-center items-center w-full h-full px-4 py-5">
+        <VscAdd size={'60px'} color="#6b21a8" />
       </div>
     </div>
   )

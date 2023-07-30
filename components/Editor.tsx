@@ -43,7 +43,7 @@ const Editor = ({ journal }) => {
             {analysisData.map((data) => (
               <li
                 key={data.name}
-                className="flex justify-between items-center px-3 py-3 border-b border-t border-black/10"
+                className="flex gap-8 justify-between items-start px-3 py-3 border-b border-t border-black/10"
               >
                 <span className="text-lg font-semibold ">{data.name}</span>
                 <span>{data.value}</span>
